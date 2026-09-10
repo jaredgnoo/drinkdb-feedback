@@ -1,0 +1,81 @@
+name: DrinkDB 資料修正 / Data Correction
+description: 回報 DrinkDB 公開資料的錯誤、過期資訊或補充可查證來源。
+title: "[Correction] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感謝協助改善 DrinkDB。請只提交可公開查證的修正，並盡量附上官方或第一方來源。
+        請勿提交密碼、付款資訊、私人聯絡資料、身分證件或其他敏感個資。
+
+  - type: dropdown
+    id: record-type
+    attributes:
+      label: Record type / 資料類型
+      options:
+        - Brand / 品牌
+        - Category / 分類
+        - Static page / 靜態頁面
+        - Other / 其他
+    validations:
+      required: true
+
+  - type: input
+    id: record-name
+    attributes:
+      label: Record name / 資料名稱
+      placeholder: 例如：50嵐
+    validations:
+      required: true
+
+  - type: input
+    id: record-slug
+    attributes:
+      label: Record slug / Slug
+      placeholder: 例如：50lan
+    validations:
+      required: false
+
+  - type: input
+    id: public-url
+    attributes:
+      label: Public page URL / 公開頁面網址
+      placeholder: https://drinkdb.org/brands/50lan
+    validations:
+      required: true
+
+  - type: textarea
+    id: requested-correction
+    attributes:
+      label: Requested correction / 建議修正
+      description: 請具體說明哪個欄位、句子或資料需要修改，以及建議內容。
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Public source or evidence / 公開來源或證據
+      description: 優先提供官方網站、官方公告或其他可公開查證的第一方來源。
+      placeholder: https://...
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes / 其他補充
+      description: 可選填，有助於 reviewer 理解背景或時效性。
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation / 確認
+      options:
+        - label: 我確認以上內容不包含敏感個資，且提交內容可公開顯示。
+          required: true
+        - label: 我理解提交 Issue 不會直接修改 DrinkDB，仍需人工審閱與驗證。
+          required: true
